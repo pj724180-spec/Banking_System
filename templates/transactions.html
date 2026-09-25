@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Transactions{% endblock %}
+
+{% block content %}
+
+<h2>📜 Transaction History</h2>
+
+{% if transactions %}
+
+<div class="table-container">
+
+<table>
+
+    <thead>
+
+        <tr>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Details</th>
+        </tr>
+
+    </thead>
+
+
+    <tbody>
+
+        {% for transaction in transactions %}
+
+        <tr>
+
+            <td>
+                {{ transaction.type }}
+            </td>
+
+            <td>
+                ₹{{ "%.2f"|format(transaction.amount) }}
+            </td>
+
+            <td>
+                {{ transaction.date }}
+            </td>
+
+            <td>
+
+                {% if transaction.to %}
+                    To: {{ transaction.to }}
+                {% endif %}
+
+                {% if transaction["from"] %}
+                    From: {{ transaction["from"] }}
+                {% endif %}
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+</div>
+
+{% else %}
+
+<p>No transactions found.</p>
+
+{% endif %}
+
+{% endblock %}

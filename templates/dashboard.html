@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<h2>Welcome, {{ account.name }} 👋</h2>
+
+<div class="balance-card">
+
+    <p>Available Balance</p>
+
+    <h1>₹{{ "%.2f"|format(account.balance) }}</h1>
+
+    <p>Account: {{ account_number }}</p>
+
+</div>
+
+
+<div class="dashboard-grid">
+
+    <a href="{{ url_for('deposit') }}" class="dashboard-card">
+        <span>➕</span>
+        <h3>Deposit</h3>
+        <p>Add money to your account</p>
+    </a>
+
+
+    <a href="{{ url_for('withdraw') }}" class="dashboard-card">
+        <span>➖</span>
+        <h3>Withdraw</h3>
+        <p>Withdraw money</p>
+    </a>
+
+
+    <a href="{{ url_for('transfer') }}" class="dashboard-card">
+        <span>💸</span>
+        <h3>Transfer</h3>
+        <p>Send money to another account</p>
+    </a>
+
+
+    <a href="{{ url_for('transactions') }}" class="dashboard-card">
+        <span>📜</span>
+        <h3>Transactions</h3>
+        <p>View transaction history</p>
+    </a>
+
+
+    <a href="{{ url_for('change_pin') }}" class="dashboard-card">
+        <span>🔑</span>
+        <h3>Change PIN</h3>
+        <p>Update your PIN</p>
+    </a>
+
+
+    <a href="{{ url_for('logout') }}" class="dashboard-card">
+        <span>🚪</span>
+        <h3>Logout</h3>
+        <p>Logout from your account</p>
+    </a>
+
+</div>
+
+{% endblock %}

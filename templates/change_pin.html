@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Change PIN{% endblock %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <h2>🔑 Change PIN</h2>
+
+    <form method="POST">
+
+        <label>Current PIN</label>
+
+        <input type="password"
+               name="old_pin"
+               maxlength="4"
+               required>
+
+
+        <label>New PIN</label>
+
+        <input type="password"
+               name="new_pin"
+               maxlength="4"
+               required>
+
+
+        <label>Confirm New PIN</label>
+
+        <input type="password"
+               name="confirm_pin"
+               maxlength="4"
+               required>
+
+
+        <button type="submit" class="btn">
+            Change PIN
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}
